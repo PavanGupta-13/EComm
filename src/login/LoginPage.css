@@ -1,0 +1,16 @@
+.Parent {
+  border-style: dashed;
+  border-color: aquamarine;
+  width: 20%;
+  height: 15rem;
+  padding-left: 2rem;
+}
+
+.Child {
+  text-align: left;
+}
+
+.Labels {
+  margin-bottom: 0rem;
+}
+/*# sourceMappingURL=LoginPage.css.map */
