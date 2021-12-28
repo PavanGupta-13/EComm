@@ -10,8 +10,9 @@ function LoginPage() {
             <input type="text-box"></input>
             </div>
             <div className="Child">
-            <h4 className="Labels">User Password</h4>
+            <h4 className="Labels">UserPassword</h4>
             <input type="password"></input>
+            <div id="button"><button className="btn btn-primary" type="button">Login</button></div>
             </div>
         </div>
     )

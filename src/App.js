@@ -1,5 +1,6 @@
 import LoginPage from './login/LoginPage'
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   return (
@@ -12,3 +13,5 @@ function App() {
 }
 
 export default App;
+
+//bootstrap/dist/css/bootstrap.min.css

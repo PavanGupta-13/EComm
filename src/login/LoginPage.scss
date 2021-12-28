@@ -1,13 +1,15 @@
 .Parent{
     border-style: dashed;
     border-color: aquamarine;
-    width: 20%;
-    height: 15rem;
-    padding-left: 2rem;
+    width: 25%;
+    height: 25rem;
+    // padding-left: 2rem;
 }
 
 .Child{
+    margin-top: 2rem;
     text-align: left;
+    padding-left: 2rem;
 }
 
 .Labels{
@@ -15,5 +17,11 @@
 }
 
 #Heading{
+    margin-top: 1rem;
     text-align: center;
+    padding-right: 0%;
+}
+
+#button{
+    margin: 2rem;
 }
