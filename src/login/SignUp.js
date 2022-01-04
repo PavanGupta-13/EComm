@@ -1,17 +1,32 @@
-import React,{useRef} from 'react'
+import React,{useRef, useState} from 'react'
 import './SignUp.css'
 import {useAuth} from '../context/AuthContext'
+// import { Alert } from 'bootstrap'
 
 function SignUp() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmationRef = useRef()
-    const {signup} = useAuth()
+    const {signup, currentUser} = useAuth()
+    const [error,setError] = useState('')
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
-        signup(emailRef.current.value, passwordRef.current.value)
+
+        if(passwordRef.current.value !== passwordConfirmationRef.current.value){
+            return setError('Passwords donot match')
+        }
+
+        try{
+            setError('')
+            await signup(emailRef.current.value, passwordRef.current.value)
+        }
+        catch{
+            setError('Failed to create an account')
+        }
+
+        
     }
 
 
@@ -20,7 +35,11 @@ function SignUp() {
             <div id="Heading"><h1>Sign Up</h1></div>
 
             <div className="Child">
-            <form>
+            <form onSubmit={handleSubmit}>
+                {/* {error && <Alert variant="danger">{error}</Alert>} */}
+                {error && <h3>{error}</h3>}
+                {/* {JSON.stringify(currentUser)} */}
+                {currentUser  && currentUser.email}
                 <label htmlFor="uname" className="Labels">UserName</label>
                 <input type="email" id="uname" name="username" ref={emailRef} required></input>
 

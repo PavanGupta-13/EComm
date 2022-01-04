@@ -15,12 +15,13 @@ export function AuthProvider({children}) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    useEffect(()=>{
-        const unsubscribe = auth.onAuthStateChanged( user=>{
-            setCurrentUser(user)
-        })
-        return unsubscribe
-    },[])
+    // useEffect(()=>{
+    //     const unsubscribe = auth.authStateChanges( user=>{
+    //         setCurrentUser(user)
+    //     })
+    //     return unsubscribe
+    // },[])
+    
     const value = {
         currentUser,
         signup
