@@ -9,7 +9,7 @@ let userDetails = [
         {
             name:"PG",
             userName: "pg123",
-            passWord: "1234"
+            passWord: "snoopy"
         },
 
         {

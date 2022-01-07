@@ -9,6 +9,7 @@ function LoginPage() {
     // const [password,setPassword] = useState('')
     const [details,setDetails] = useState({username:"", password:""})
     const [access,setAccess] = useState ()
+    const [errMsg,setErrMsg] = useState (true)
 
     // const homePageDisp = createContext()
     const status = useContext(HomePageDisp)
@@ -24,13 +25,15 @@ function LoginPage() {
         // setAccess(false)
         console.log(details)
         userDetails.map((i)=>{
-
+        setErrMsg(false)
+        console.log(errMsg)
             // (((i.userName === details.username) && (i.passWord === details.password)) ? (setAccess(true)) : setAccess(false))
-            if((i.userName === details.username) && (i.passWord === details.password)){
+            if((i.userName === details.username) && (i.passWord == details.password)){
                 setAccess(true)
                 pName(i.name)
             }else{
-                setAccess("no")
+                // setAccess("no")
+                setErrMsg(false)
             }
         })
         console.log(access)
@@ -41,7 +44,7 @@ function LoginPage() {
     return (
         <div className="Parent">
             <div id="Heading"><h1 style={{color:"white"}}>User Login</h1></div>
-            <form>
+            <form onSubmit={handleSubmit}>
             <div className="Child">
                 <label htmlFor="uname" className="Labels">UserName</label>
                 <input id="uname" name="username" type="text-box" onChange={validation}></input>
@@ -50,7 +53,7 @@ function LoginPage() {
                 <label htmlFor="pwd" className="Labels">UserPassword</label>
                 <input id="pwd" name="password" type="password" onChange={validation}></input>
             <div id="button"><button className="btn btn-primary" type="submit" onClick={handleSubmit}>Login</button></div>
-            {(access === "no" && <h5 style={{color:"red"}}>Details incorrect, Please ask Admin to add your details.</h5>)}
+            <h5 style={{color:"red", display:errMsg && "none"}}>Details incorrect, Please ask Admin to add your details.</h5>
             </div>
             </form>
         </div>

@@ -1,12 +1,12 @@
 import React from 'react'
 
-function StateData() {
+function StateData({state}) {
     return (
-        <div>
+        <div >
         <ul className="list-group list-group-flush">
-            <div className="flexBox2">
-                <li className="list-group-item items">State</li>
-                <li className="list-group-item items">Confirmed Cases</li>
+            <div className="flexBox2" style={{marginBottom:"1rem"}}>
+                <li className="list-group-item items">{state.loc}</li>
+                <li className="list-group-item items">{state.totalConfirmed}</li>
             </div>
         </ul>
         </div>

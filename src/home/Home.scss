@@ -14,7 +14,10 @@
 }
 
 .items{
-    flex-grow: 1;
+    // flex-grow: 2;
+    color: #ff0b00;
+    text-align: left;
+    flex-basis: 50%;
 }
 
 
@@ -27,3 +30,7 @@
 .caseload{
     color: #000000;
 }
+
+// .stateData{
+//     margin:  2%;
+// }

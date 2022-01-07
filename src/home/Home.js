@@ -1,23 +1,27 @@
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import './Home.css'
+import StateData from './StateData'
 
 function Home() {
 
     const[Casedata,setData] = useState()
     const[stateData,setStateData] = useState([])
-    const[dispCard,setDispCard] = useState(true)
+    const[dispCard,setDispCard] = useState(true) 
     const url = "https://api.rootnet.in/covid19-in/stats/latest"
     useEffect(() => {
         axios.get(url)
          .then((res)=>{console.log(res.data.data)
-         setData(res.data.data)})
+         setData(res.data.data)
+         setStateData(res.data.data.regional)})
          
     }, [])
     let toggleData = ()=>{
         setDispCard(!dispCard)
     }
 
+    stateData.sort((a,b)=>{return b.totalConfirmed-a.totalConfirmed})
+    let finalArr = stateData.slice(0,5)
     return (
         <div>
             
@@ -51,15 +55,11 @@ function Home() {
                     State Data
                 </button>
 
+                {!dispCard && finalArr.map((state)=>(<div className="stateData">
+                    <StateData state={state}/>
+                </div>))}
+                
 
-                <div className="card card text-dark bg-info mb-3" style={{display:dispCard &&  "none"}}>
-                    <ul className="list-group list-group-flush">
-                        <div className="flexBox2">
-                            <li className="list-group-item items">State</li>
-                            <li className="list-group-item items">Confirmed Cases</li>
-                        </div>
-                    </ul>
-                </div>
 
             </div>
             {/* </div> */}
