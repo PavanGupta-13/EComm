@@ -2,8 +2,9 @@ import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import './Home.css'
 import StateData from './StateData'
+import Buycard from './Buycard'
 
-function Home() {
+function Home({pName}) {
 
     const[Casedata,setData] = useState()
     const[stateData,setStateData] = useState([])
@@ -59,7 +60,7 @@ function Home() {
                     <StateData state={state}/>
                 </div>))}
                 
-
+                <Buycard pName={pName}/>
 
             </div>
             {/* </div> */}

@@ -19,6 +19,16 @@
   display: flex;
 }
 
+.flexBox3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .items {
   color: #ff0b00;
   text-align: left;

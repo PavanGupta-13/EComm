@@ -35,7 +35,7 @@ function App() {
         </HomePageDisp.Provider>
         {disp && <>
         <Nav pName={pName}/>
-        <Home/>
+        <Home pName={pName}/>
         </>}
       </header>
     </div>

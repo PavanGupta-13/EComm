@@ -16,7 +16,13 @@ let userDetails = [
             name:"Swarna",
             userName: "swarna",
             passWord: "pglub"
+        },
+        {
+            name:"Sahith",
+            userName: "sahith",
+            passWord: "bodla"
         }
+
     ]
 
 export default userDetails
