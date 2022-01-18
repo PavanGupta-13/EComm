@@ -25,7 +25,7 @@ function LoginPage() {
         // setAccess(false)
         console.log(details)
         userDetails.map((i)=>{
-        setErrMsg(false)
+        // setErrMsg(false)
         console.log(errMsg)
             // (((i.userName === details.username) && (i.passWord === details.password)) ? (setAccess(true)) : setAccess(false))
             if((i.userName === details.username) && (i.passWord == details.password)){
@@ -33,7 +33,8 @@ function LoginPage() {
                 pName(i.name)
             }else{
                 // setAccess("no")
-                setErrMsg(false)
+                if(i.userName!=="" && i.passWord!=="")
+                    setErrMsg(false)
             }
         })
         console.log(access)
@@ -52,7 +53,7 @@ function LoginPage() {
             <div className="Child">
                 <label htmlFor="pwd" className="Labels">UserPassword</label>
                 <input id="pwd" name="password" type="password" onChange={validation}></input>
-            <div id="button"><button className="btn btn-primary" type="submit" onClick={handleSubmit}>Login</button></div>
+            <div id="button"><button className="btn btn-primary" type="submit" onSubmit={handleSubmit}>Login</button></div>
             <h5 style={{color:"red", display:errMsg && "none"}}>Details incorrect, Please ask Admin to add your details.</h5>
             </div>
             </form>

@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { createContext, useState } from 'react';
 import Home from './home/Home'
 import Nav from './home/Nav'
+import HsptlData from './hospitaldata/HsptlData';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import SignUp from './login/SignUp';
 // import { AuthProvider } from './context/AuthContext';
 const HomePageDisp = createContext()
@@ -13,6 +15,12 @@ function App() {
   
   const [disp,setDisp] = useState()
   const [pName,setPName] = useState('')
+  const [cQty,setcQty] = useState(0)
+
+  const getcQty= (i)=>{
+    let fetchedCQty = i
+    setcQty(fetchedCQty)
+  }
 
   return (
     // <AuthProvider>
@@ -34,8 +42,18 @@ function App() {
           </NameShare.Provider>
         </HomePageDisp.Provider>
         {disp && <>
-        <Nav pName={pName}/>
-        <Home pName={pName}/>
+
+        <BrowserRouter>
+        <Nav pName={pName} cQty={cQty}/>
+        <Routes>
+          <Route path="/HspData" element={<HsptlData/>} />
+          <Route path="/" element={<Home pName={pName} getcQty={getcQty}/>}/>
+        </Routes>
+        </BrowserRouter>
+
+        {/* <Nav pName={pName} cQty={cQty}/> */}
+        {/* <Home pName={pName} getcQty={getcQty}/> */}
+        
         </>}
       </header>
     </div>

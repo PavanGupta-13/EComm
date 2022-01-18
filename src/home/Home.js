@@ -4,7 +4,7 @@ import './Home.css'
 import StateData from './StateData'
 import Buycard from './Buycard'
 
-function Home({pName}) {
+function Home({pName,getcQty}) {
 
     const[Casedata,setData] = useState()
     const[stateData,setStateData] = useState([])
@@ -20,6 +20,10 @@ function Home({pName}) {
     let toggleData = ()=>{
         setDispCard(!dispCard)
     }
+
+    // const setcQty = (i)=>{
+    //     let cartQty = i
+    // }
 
     stateData.sort((a,b)=>{return b.totalConfirmed-a.totalConfirmed})
     let finalArr = stateData.slice(0,5)
@@ -60,7 +64,7 @@ function Home({pName}) {
                     <StateData state={state}/>
                 </div>))}
                 
-                <Buycard pName={pName}/>
+                <Buycard pName={pName} setcQty={getcQty}/>
 
             </div>
             {/* </div> */}

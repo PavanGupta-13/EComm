@@ -1,0 +1,11 @@
+.flexBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.title {
+  color: #ff9900;
+  margin-left: 10%;
+}
+/*# sourceMappingURL=HsptlData.css.map */

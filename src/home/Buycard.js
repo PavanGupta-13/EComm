@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-function Buycard({pName}) {
+
+function Buycard({pName, setcQty}) {
 
     const[dispCart, setDispCart] = useState(true)
     const[cartQty, setCartQty] = useState(0)
@@ -20,6 +21,7 @@ function Buycard({pName}) {
         }
         // console.log(cartQty)
     }
+
 
     return (<>
         <div style={{marginLeft:"30%", marginTop:"1rem"}}>
@@ -41,6 +43,7 @@ function Buycard({pName}) {
 
         <div>
         <div className="card bg-light mb-3" style={{maxWidth: "540px",cursor:"pointer", padding:"1rem" ,position:"fixed", display:dispCart && "none",  top:"25%", left:"30%"}}>
+        <span style={{alignSelf:"flex-end"}}><button type="button" className="btn-close" aria-label="Close" style={{fontSize:"1rem"}} onClick={()=>{setDispCart(!dispCart); setCartQty(0)}}></button></span>
         <div className="row g-0">
             <div className="col-md-4">
             <img src="https://s.wsj.net/public/resources/images/B3-GL161_CVEMER_8SR_20200402162001.jpg" className="img-fluid rounded-start" alt="..."></img>
@@ -69,7 +72,7 @@ function Buycard({pName}) {
                 </div>
                 <form className="flexBox3">
                 <input readOnly="true"  type="textbox" value={cartQty} style={{width:"2rem",height:"2rem",fontSize:"1rem", marginTop:"2rem", alignSelf:"center"}}></input>
-                <button type="submit" className="btn btn-primary" style={{width:"10rem", alignSelf:"center", marginTop:"1rem"}}>Add to Cart</button>
+                <button type="submit" className="btn btn-primary" style={{width:"10rem", alignSelf:"center", marginTop:"1rem"}} onClick={()=>{setcQty(cartQty)}}>Add to Cart</button>
                 </form>
                 <p className="card-text" style={{marginTop:"1rem"}}><small className="text-muted">Deal ends in 3 Minutes</small></p>
             </div>
