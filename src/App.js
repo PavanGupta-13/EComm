@@ -6,6 +6,7 @@ import Home from './home/Home'
 import Nav from './home/Nav'
 import HsptlData from './hospitaldata/HsptlData';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './cart/Cart';
 // import SignUp from './login/SignUp';
 // import { AuthProvider } from './context/AuthContext';
 const HomePageDisp = createContext()
@@ -13,9 +14,10 @@ const NameShare = createContext()
 
 function App() {
   
-  const [disp,setDisp] = useState()
+  const [disp,setDisp] = useState(false)
   const [pName,setPName] = useState('')
   const [cQty,setcQty] = useState(0)
+  const [reset,setReset] = useState(false)
 
   const getcQty= (i)=>{
     let fetchedCQty = i
@@ -44,10 +46,11 @@ function App() {
         {disp && <>
 
         <BrowserRouter>
-        <Nav pName={pName} cQty={cQty}/>
+        <Nav pName={pName} cQty={cQty} setDisp={setDisp}/>
         <Routes>
           <Route path="/HspData" element={<HsptlData/>} />
           <Route path="/" element={<Home pName={pName} getcQty={getcQty}/>}/>
+          <Route path="/Cart" element={<Cart cQty={cQty} setReset={setReset}/>}/>
         </Routes>
         </BrowserRouter>
 

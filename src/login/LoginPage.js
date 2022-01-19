@@ -28,13 +28,15 @@ function LoginPage() {
         // setErrMsg(false)
         console.log(errMsg)
             // (((i.userName === details.username) && (i.passWord === details.password)) ? (setAccess(true)) : setAccess(false))
-            if((i.userName === details.username) && (i.passWord == details.password)){
+            if((i.userName === details.username) && (i.passWord === details.password)){
                 setAccess(true)
+                console.log("entered")
                 pName(i.name)
             }else{
                 // setAccess("no")
                 if(i.userName!=="" && i.passWord!=="")
                     setErrMsg(false)
+                    console.log("Wromg")
             }
         })
         console.log(access)
@@ -54,7 +56,7 @@ function LoginPage() {
                 <label htmlFor="pwd" className="Labels">UserPassword</label>
                 <input id="pwd" name="password" type="password" onChange={validation}></input>
             <div id="button"><button className="btn btn-primary" type="submit" onSubmit={handleSubmit}>Login</button></div>
-            <h5 style={{color:"red", display:errMsg && "none"}}>Details incorrect, Please ask Admin to add your details.</h5>
+            <h5 style={{color:"red", display:errMsg && "none", marginTop:"1rem"}}>Details incorrect, Please ask Admin to add your details.</h5>
             </div>
             </form>
         </div>

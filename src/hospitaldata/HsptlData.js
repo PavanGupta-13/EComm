@@ -31,7 +31,7 @@ function HsptlData() {
             </thead>
             <tbody>
                 {hspData.map((hspItem)=>(
-                    <Hsptl hspItem={hspItem} setSNum={setSNum}/>
+                    <Hsptl hspItem={hspItem} key={hspItem.srno} setSNum={setSNum}/>
                 ))}
             </tbody>
             </table>

@@ -4,7 +4,8 @@ function HsptlCard({hspData, sNum}) {
 
     // let dataArr = hspData
     // let Arri = sNum
-    let ele = hspData[sNum-1]
+    let index = hspData.findIndex(i => i.srno === sNum)
+    let ele = hspData[index]
     return (
         <div>
             <div className="card text-white bg-secondary" style={{width: "20rem", marginLeft:"1rem"}}>
